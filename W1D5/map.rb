@@ -14,40 +14,55 @@
 
 class Map
 
-  attr_reader :map
-
-  def initialize (map = [[]])
-    @map = map
+  def initialize
+    @init_arr = []
   end
 
   def set(key, value)
-    map = [[key, value]] if map.empty?
+    pair_index = init_arr.index { |pair| pair[0] == key }
 
-    map.each do |kv|
-      if kv.first == key
-        kv << value
+    if pair_index
+        init_arr.index { |pair| pair[1] == value }
       else
-        map << [key, value]
-      end
+        init_arr.push([key, value])
     end
-    map
+
+    init_arr
   end
 
   def get(key)
+    init_arr.each { |arr| return arr if arr.first == key }
   end
 
   def delete(key)
+    init_arr.reject! { |arr| arr.first == key }
   end
 
   def show
+    deep_dup(init_arr)
+  end
+
+  private
+
+  attr_reader :init_arr
+
+  def deep_dup(init_arr)
+      arr.map do |el|
+        if el.is_a?(Array)
+          deep_dup(el)
+        else
+          el
+        end
+      end
   end
 
 end
 
 puts "set tests"
 puts "==============================="
-
 test_map = Map.new
 p test_map
 puts
-print = test_map.set(2, "two")
+puts "set tests"
+print test_map.set(2, "two")
+puts
