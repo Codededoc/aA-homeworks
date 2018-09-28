@@ -13,7 +13,7 @@ class Stack
 
   attr_reader :stack
 
-  def initialize (stack = [1, 2, 3])
+  def initialize (stack = [])
     @stack = stack
   end
 
@@ -35,7 +35,7 @@ end
 #
 # To test that your code works, create a new instance of the Stack class,
  # and play around with adding and removing elements. Remember, a stack follows the principle of LIFO!
-test_stack = Stack.new
+test_stack = Stack.new([1, 2, 3])
 
 print test_stack
 puts
