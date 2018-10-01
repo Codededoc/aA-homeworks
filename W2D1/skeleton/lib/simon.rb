@@ -42,7 +42,7 @@ class Simon
     puts "Repeat the sequence given by entering each color on a new line: "
     @seq.each do |color|
       user_color = gets.chomp.downcase
-      if color = != user_color
+      if color != user_color
         @game_over = true
         break
       end
@@ -68,4 +68,9 @@ class Simon
     # @game_over = false
     # @seq = []
   end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  game = Simon.new
+  game.play
 end
