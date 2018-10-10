@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_120819) do
 
   create_table "houses", force: :cascade do |t|
     t.string "address", null: false
+    # t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_120819) do
     t.integer "house_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    # t.index ["house_id"], name: "index_people_on_house_id"
   end
 
 end
