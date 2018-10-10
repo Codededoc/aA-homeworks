@@ -10,7 +10,7 @@ class House < ActiveRecord::Base
     foreign_key: :house_id,
     class_name: 'Person'
 
-  validates :address, presence: true
+  # validates :address, presence: true
   # def persons
   #   Person.where(house_id: self.id)
   # end
